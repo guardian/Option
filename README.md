@@ -12,7 +12,7 @@ Available from the Guardian github repository:
     <dependency>
         <groupId>com.gu</groupId>
         <artifactId>option</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
     </dependency>
 
 And check for the latest version number.

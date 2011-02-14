@@ -9,8 +9,9 @@ import static junit.framework.Assert.fail;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import com.gu.option.Option.Function;
-import com.gu.option.Option.UnitFunction;
+import com.gu.option.Function;
+import com.gu.option.UnitFunction;
+import java.util.List;
 
 public class OptionTest {
 
@@ -196,4 +197,19 @@ public class OptionTest {
         assertThat(s.toString(), is("Some(1)"));
         assertThat(n.toString(), is("None"));      
     }
+
+    @Test
+    public void shouldToList() {
+        Option<Integer> s = some(1111);
+        Option<Integer> n = none();
+
+        List<Integer> sl = s.toList();
+        assertThat(sl.size(), is(1));
+        assertThat(sl.get(0), is(1111));
+
+
+        List<Integer> nl = n.toList();
+        assertThat(nl.size(), is(0));
+    }
+
 }
