@@ -72,8 +72,8 @@ To map, flatMap, foreach, etc on `Option`s, function interfaces are provided:
        public void apply(Integer x) { System.out.println(x * 2); }
     };
 
-    s.foreach(f3);                      // prints Some(2)
-    n.foreach(f3);                      // prints None
+    s.foreach(f3);                      // prints 2
+    n.foreach(f3);                      // does nothing
 
 
 Filtering and testing
