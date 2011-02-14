@@ -22,12 +22,15 @@ Creating options
 
     import static com.gu.option.Option.none;
     import static com.gu.option.Option.some;
+    import static com.gu.option.Option.option;
     import com.gu.option.Option;
     
     ...
 
-    Option<Integer> s = some(6174);
-    Option<Integer> n = none();
+    Option<Integer> s1 = some(6174);
+    Option<Integer> n1 = none();
+    Option<Integer> s2 = option(6174);   // is Some(6174)
+    Option<Integer> n2 = option(null);   // is None
 
 You may have a headache with ensuring correct typing if you use `none()` in expressions.
 
