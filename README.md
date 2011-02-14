@@ -5,6 +5,18 @@ Implementation of Scala Option in Java.
 Usage
 =====
 
+Including in Maven
+------------------
+Available from the Guardian github repository:
+
+    <dependency>
+        <groupId>com.gu</groupId>
+        <artifactId>option</artifactId>
+        <version>1.1</version>
+    </dependency>
+
+And check for the latest version number.
+
 Creating options
 ----------------
 
