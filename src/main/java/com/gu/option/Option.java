@@ -27,6 +27,14 @@ public abstract class Option<T> implements Iterable<T> {
     public static <S> Option<S> some(S s) { return new Some<S>(s); }
     public static <S> Option<S> none() { return new None<S>(); }
 
+    public static <S> Option<S> option(S s) {
+        if (s == null) {
+            return none();
+        }
+
+        return some(s);
+    }
+
     public static class Some<T> extends Option<T> {
         private final T value;
 
@@ -55,7 +63,7 @@ public abstract class Option<T> implements Iterable<T> {
         }
 
         public <S> Option<S> flatMap(Function<T,Option<S>> f) {
-            return some(f.apply(this.get()).get());
+            return f.apply(this.get());
         }
 
         public void foreach(UnitFunction<T> f) {

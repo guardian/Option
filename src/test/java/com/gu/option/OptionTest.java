@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static com.gu.option.Option.none;
 import static com.gu.option.Option.some;
+import static com.gu.option.Option.option;
 import static junit.framework.Assert.fail;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -18,6 +19,11 @@ public class OptionTest {
         assertThat(some(true).get(), is(true));
     }
 
+    @Test
+    public void shouldBuildOption() {
+        assertThat(option(null).isDefined(), is(false));
+        assertThat(option(1).isDefined(), is(true));
+    }
 
     @Test
     public void shouldSupportIterableSyntax() {
@@ -151,7 +157,10 @@ public class OptionTest {
 
         assertThat(s.flatMap(f).isDefined(), is(true));
         assertThat(s.flatMap(f).get(), is(2));
-        assertThat(n.map(f).isDefined(), is(false));
+        assertThat(n.flatMap(f).isDefined(), is(false));
+
+        assertThat(s.flatMap(f2).isDefined(), is(false));
+        assertThat(n.flatMap(f2).isDefined(), is(false));
     }
 
     @Test
