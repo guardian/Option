@@ -1,5 +1,5 @@
 package com.gu.option;
 
-interface UnitFunction<T> {
+public interface UnitFunction<T> {
    void apply(T x);
 }
